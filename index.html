@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diljeet Kakkar — Lead Engineer · Frontend Architecture · Engineering Leadership</title>
+<meta name="description" content="Portfolio of Diljeet Kakkar — Lead Engineer at Ticketmaster with 10+ years in frontend architecture, React/Next.js, and engineering leadership.">
+<meta name="author" content="Diljeet Kakkar">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#fbfbf9">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Diljeet Kakkar — Lead Engineer · Frontend Architecture">
+<meta property="og:description" content="Engineering leader with 10+ years of experience — React, Next.js, design systems, and business-critical web platforms at Ticketmaster.">
+<meta property="og:site_name" content="Diljeet Kakkar — Portfolio">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Diljeet Kakkar — Lead Engineer · Frontend Architecture">
+<meta name="twitter:description" content="Engineering leader with 10+ years of experience — React, Next.js, design systems, and business-critical web platforms at Ticketmaster.">
+<!-- After deploying to GitHub Pages, uncomment and set your live URL (see README.md): -->
+<!-- <link rel="canonical" href="https://YOURUSERNAME.github.io/"> -->
+<!-- <meta property="og:url" content="https://YOURUSERNAME.github.io/"> -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232557d6'/%3E%3Ctext x='32' y='42' font-family='Arial,Helvetica,sans-serif' font-size='26' font-weight='700' fill='white' text-anchor='middle'%3EDK%3C/text%3E%3C/svg%3E">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Diljeet Kakkar",
+  "jobTitle": "Lead Engineer",
+  "worksFor": { "@type": "Organization", "name": "Ticketmaster" },
+  "email": "mailto:diljeetkakkarw@gmail.com",
+  "sameAs": ["https://www.linkedin.com/in/diljeetkakkar/"],
+  "knowsAbout": ["React.js", "Next.js", "JavaScript", "Node.js", "AWS", "Frontend Architecture", "Design Systems", "Engineering Leadership", "Agentic AI"]
+}
+</script>
+<script>try { if (localStorage.getItem('theme') === 'dark') document.documentElement.setAttribute('data-theme', 'dark'); } catch (e) {}</script>
+<style>
+  :root {
+    color-scheme: light;
+    --bg: #fbfbf9;
+    --surface: #ffffff;
+    --text: #17202b;
+    --muted: #5c6572;
+    --accent: #2557d6;
+    --accent-dark: #1a41a8;
+    --accent-soft: #ecf1fd;
+    --border: #e7e9ed;
+    --border-strong: #c9cdd4;
+    --nav-bg: rgba(251,251,249,.85);
+    --hover-bg: #f1f2f0;
+    --dot-color: rgba(37,87,214,.08);
+    --badge-bg: #eefbf2;
+    --badge-border: #cdeeda;
+    --badge-text: #177245;
+    --shadow: 0 1px 2px rgba(23,32,43,.05), 0 8px 24px rgba(23,32,43,.06);
+    --radius: 14px;
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --bg: #0f1420;
+    --surface: #171e2c;
+    --text: #e9edf4;
+    --muted: #9aa5b6;
+    --accent: #7d9bf0;
+    --accent-dark: #a9befa;
+    --accent-soft: #1d2a47;
+    --border: #273250;
+    --border-strong: #3a4870;
+    --nav-bg: rgba(15,20,32,.85);
+    --hover-bg: #1d2740;
+    --dot-color: rgba(125,155,240,.10);
+    --badge-bg: #12291c;
+    --badge-border: #1f4630;
+    --badge-text: #5ad48f;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.35);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection { background: var(--accent-soft); }
+  a { color: var(--accent); text-decoration: none; }
+
+  /* ---------- Nav ---------- */
+  nav {
+    position: sticky; top: 0; z-index: 50;
+    background: var(--nav-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-inner {
+    max-width: 1080px; margin: 0 auto; padding: 0 24px;
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    height: 64px;
+  }
+  .brand { font-weight: 700; font-size: 17px; letter-spacing: -.02em; color: var(--text); white-space: nowrap; }
+  .brand span { color: var(--accent); }
+  .nav-links { display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; }
+  .nav-links::-webkit-scrollbar { display: none; }
+  .nav-links a {
+    color: var(--muted); font-size: 14px; font-weight: 500;
+    padding: 7px 12px; border-radius: 8px; white-space: nowrap;
+    transition: color .2s, background .2s;
+  }
+  .nav-links a:hover { color: var(--text); background: var(--hover-bg); }
+  .theme-toggle {
+    flex: none; width: 36px; height: 36px; border-radius: 10px; cursor: pointer;
+    border: 1px solid var(--border); background: var(--surface); font-size: 16px; line-height: 1;
+    transition: border-color .2s, transform .15s;
+  }
+  .theme-toggle:hover { border-color: var(--accent); }
+  .theme-toggle:active { transform: scale(.94); }
+  .nav-links a.active { color: var(--accent); background: var(--accent-soft); }
+
+  /* ---------- Layout ---------- */
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+  section { padding: 72px 0 8px; }
+  .kicker {
+    display: inline-flex; align-items: center; gap: 10px; font-size: 12px; font-weight: 700; letter-spacing: .14em;
+    text-transform: uppercase; color: var(--accent); margin-bottom: 10px;
+  }
+  .kicker::before { content: ""; width: 22px; height: 2px; background: var(--accent); border-radius: 2px; }
+  h2 { font-family: "New York", ui-serif, Georgia, "Times New Roman", serif; font-size: clamp(26px, 3.4vw, 34px); letter-spacing: -.02em; margin-bottom: 8px; }
+  .section-sub { color: var(--muted); max-width: 640px; margin-bottom: 36px; }
+
+  /* ---------- Reveal ---------- */
+  .reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  /* ---------- Hero ---------- */
+  .hero { padding: 92px 0 64px; position: relative; overflow: hidden; }
+  .hero-glow {
+    position: absolute; top: -180px; right: -140px; width: 520px; height: 520px;
+    background: radial-gradient(circle, rgba(37,87,214,.10) 0%, rgba(37,87,214,0) 65%);
+    pointer-events: none;
+  }
+  .avatar {
+    width: 96px; height: 96px; border-radius: 30px;
+    background: linear-gradient(135deg, var(--accent) 0%, #6f8fe8 100%);
+    color: #fff; font-weight: 700; font-size: 34px; letter-spacing: .02em;
+    display: flex; align-items: center; justify-content: center;
+    border: 3px solid var(--surface); overflow: hidden;
+    box-shadow: 0 0 0 2px rgba(37,87,214,.22), 0 14px 32px rgba(37,87,214,.26);
+    margin-bottom: 26px;
+    transition: transform .3s ease;
+  }
+  .avatar:hover { transform: scale(1.05) rotate(-2deg); }
+  .avatar img { width: 100%; height: 100%; object-fit: cover; }
+  .hero h1 {
+    font-family: "New York", ui-serif, Georgia, "Times New Roman", serif;
+    font-size: clamp(40px, 6.2vw, 64px); letter-spacing: -.02em; line-height: 1.05;
+    background: linear-gradient(100deg, var(--text) 35%, var(--accent) 82%, #6f8fe8 100%);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
+    width: fit-content;
+  }
+  .rotator { margin: 14px 0 20px; font-size: clamp(18px, 2.6vw, 24px); font-weight: 600; color: var(--muted); min-height: 1.5em; }
+  .rotator .word { color: var(--accent); display: inline-block; transition: opacity .35s ease, transform .35s ease; }
+  .rotator .word.out { opacity: 0; transform: translateY(8px); }
+  .hero p.lede { max-width: 660px; color: var(--muted); font-size: 17px; }
+  .cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 12px 22px; border-radius: 10px; font-weight: 600; font-size: 15px;
+    transition: transform .15s ease, box-shadow .15s ease, background .2s;
+  }
+  .btn:active { transform: scale(.98); }
+  .btn-primary { background: var(--accent); color: #fff; box-shadow: 0 6px 18px rgba(37,87,214,.3); }
+  .btn-primary:hover { background: var(--accent-dark); }
+  .btn-ghost { background: var(--surface); color: var(--text); border: 1px solid var(--border); }
+  .btn-ghost:hover { border-color: var(--border-strong); box-shadow: var(--shadow); }
+
+  .stats {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;
+    margin-top: 56px;
+  }
+  .stat {
+    background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 20px 22px; box-shadow: var(--shadow);
+  }
+  .stat .num { font-size: 32px; font-weight: 700; letter-spacing: -.03em; color: var(--accent); }
+  .stat .lbl { font-size: 13px; color: var(--muted); margin-top: 2px; }
+
+  /* ---------- About ---------- */
+  .about-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 40px; align-items: start; }
+  .about-grid p { color: var(--muted); margin-bottom: 14px; font-size: 16px; }
+  .about-grid p strong { color: var(--text); font-weight: 600; }
+  .strengths { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 999px;
+    padding: 7px 14px; font-size: 13px; font-weight: 500; color: var(--text);
+    transition: border-color .2s, background .2s, transform .15s;
+  }
+  .chip:hover { border-color: var(--accent); background: var(--accent-soft); transform: translateY(-1px); }
+
+  /* ---------- Experience ---------- */
+  .timeline { position: relative; padding-left: 30px; }
+  .timeline::before {
+    content: ""; position: absolute; left: 8px; top: 8px; bottom: 8px;
+    width: 2px; background: linear-gradient(var(--accent) 0%, var(--border) 100%);
+    border-radius: 2px;
+  }
+  .job { position: relative; margin-bottom: 22px; }
+  .job::before {
+    content: ""; position: absolute; left: -30px; top: 26px;
+    width: 14px; height: 14px; border-radius: 50%;
+    background: var(--surface); border: 3px solid var(--accent);
+    transform: translateX(1.5px);
+  }
+  .job-card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+    box-shadow: var(--shadow); overflow: hidden;
+    transition: border-color .2s;
+  }
+  .job-card:hover { border-color: var(--border-strong); }
+  .job-head {
+    width: 100%; text-align: left; background: none; border: none; cursor: pointer;
+    padding: 22px 24px; font: inherit; color: inherit;
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  }
+  .job-head h3 { font-size: 19px; letter-spacing: -.02em; }
+  .job-meta { color: var(--muted); font-size: 14px; margin-top: 3px; }
+  .job-meta .co { color: var(--accent); font-weight: 600; }
+  .chev {
+    flex: none; width: 30px; height: 30px; border-radius: 50%;
+    background: var(--accent-soft); color: var(--accent);
+    display: flex; align-items: center; justify-content: center;
+    transition: transform .3s ease;
+  }
+  .job.open .chev { transform: rotate(180deg); }
+  .job-body { max-height: 0; overflow: hidden; transition: max-height .45s ease; }
+  .job.open .job-body { max-height: 700px; }
+  .job-body ul { padding: 0 24px 22px 24px; list-style: none; }
+  .job-body li {
+    position: relative; padding: 5px 0 5px 22px; color: var(--muted); font-size: 15px;
+  }
+  .job-body li::before {
+    content: ""; position: absolute; left: 4px; top: 14px;
+    width: 6px; height: 6px; border-radius: 50%; background: var(--accent);
+  }
+
+  /* ---------- Projects ---------- */
+  .proj-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .proj {
+    background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 22px; box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 10px;
+    transition: transform .25s ease, box-shadow .25s ease, opacity .3s, border-color .2s;
+  }
+  .proj:hover { transform: translateY(-4px); box-shadow: 0 14px 32px rgba(23,32,43,.10); border-color: var(--border-strong); }
+  .proj.hide { display: none; }
+  .proj-top { display: flex; justify-content: space-between; align-items: start; gap: 10px; }
+  .proj h3 { font-size: 17px; letter-spacing: -.01em; }
+  .proj .dates { font-size: 12px; color: var(--muted); white-space: nowrap; background: var(--hover-bg); padding: 4px 9px; border-radius: 6px; }
+  .proj .org { font-size: 13px; font-weight: 600; color: var(--accent); }
+  .proj .desc { font-size: 14px; color: var(--muted); flex: 1; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag {
+    font-size: 11.5px; font-weight: 600; color: var(--accent-dark);
+    background: var(--accent-soft); border-radius: 6px; padding: 3px 8px;
+  }
+
+  /* ---------- Skills ---------- */
+  .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .skill-card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 24px; box-shadow: var(--shadow);
+  }
+  .skill-card h3 { font-size: 15px; margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
+  .skill-card h3 .dot { width: 9px; height: 9px; border-radius: 3px; background: var(--accent); display: inline-block; }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+
+  /* ---------- Awards ---------- */
+  .awards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .award {
+    background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 24px; box-shadow: var(--shadow); transition: transform .25s, box-shadow .25s;
+  }
+  .award:hover { transform: translateY(-4px); box-shadow: 0 14px 32px rgba(23,32,43,.10); }
+  .award .trophy {
+    width: 42px; height: 42px; border-radius: 12px; background: var(--accent-soft);
+    display: flex; align-items: center; justify-content: center; font-size: 20px; margin-bottom: 14px;
+  }
+  .award h3 { font-size: 16px; letter-spacing: -.01em; }
+  .award p { font-size: 13.5px; color: var(--muted); margin-top: 4px; }
+
+  /* ---------- Contact ---------- */
+  .contact-card {
+    background: linear-gradient(135deg, #1c3a8f 0%, var(--accent) 60%, #4a74e0 100%);
+    border-radius: 22px; padding: clamp(36px, 6vw, 64px); text-align: center; color: #fff;
+    box-shadow: 0 20px 48px rgba(37,87,214,.32);
+  }
+  .contact-card h2 { color: #fff; margin-bottom: 10px; }
+  .contact-card p { color: rgba(255,255,255,.85); max-width: 560px; margin: 0 auto 28px; }
+  .contact-card .btn-white { background: #fff; color: #1a41a8; }
+  .contact-card .btn-white:hover { background: #f0f3ff; }
+  .contact-card .btn-outline { border: 1.5px solid rgba(255,255,255,.6); color: #fff; }
+  .contact-card .btn-outline:hover { background: rgba(255,255,255,.12); }
+  .contact-card .cta-row { justify-content: center; }
+  .contact-email { margin-top: 22px; font-size: 14px; color: rgba(255,255,255,.75); }
+  .contact-email a { color: #fff; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+
+  footer { padding: 44px 0 56px; text-align: center; color: var(--muted); font-size: 13.5px; }
+
+  /* ---------- Polish: hero mesh & layering ---------- */
+  .hero::before {
+    content: ""; position: absolute; inset: 0; z-index: 0;
+    background-image: radial-gradient(var(--dot-color) 1px, transparent 1px);
+    background-size: 24px 24px;
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,.85), transparent 78%);
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,.85), transparent 78%);
+    pointer-events: none;
+  }
+  .hero::after {
+    content: ""; position: absolute; bottom: -170px; left: -130px; z-index: 0;
+    width: 440px; height: 440px;
+    background: radial-gradient(circle, rgba(159,122,234,.09) 0%, rgba(159,122,234,0) 65%);
+    pointer-events: none;
+  }
+  .hero-glow { z-index: 0; }
+  .hero > .wrap { position: relative; z-index: 1; }
+
+  /* ---------- Polish: status badge ---------- */
+  .status-badge {
+    display: inline-flex; align-items: center; gap: 9px;
+    background: var(--badge-bg); border: 1px solid var(--badge-border); color: var(--badge-text);
+    font-size: 13px; font-weight: 600; border-radius: 999px; padding: 6px 15px;
+    margin-bottom: 20px;
+  }
+  .status-badge .pulse { width: 8px; height: 8px; border-radius: 50%; background: #22a35a; position: relative; }
+  .status-badge .pulse::after {
+    content: ""; position: absolute; inset: -4px; border-radius: 50%;
+    border: 2px solid rgba(34,163,90,.45); animation: pulse 1.8s ease-out infinite;
+  }
+  @keyframes pulse { 0% { transform: scale(.55); opacity: 1; } 100% { transform: scale(1.4); opacity: 0; } }
+
+  /* ---------- Polish: stat hover ---------- */
+  .stat { transition: transform .2s ease, box-shadow .2s ease; }
+  .stat:hover { transform: translateY(-3px); box-shadow: 0 12px 26px rgba(23,32,43,.10); }
+
+  /* ---------- Polish: skills ticker ---------- */
+  .ticker {
+    border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+    background: var(--surface); padding: 15px 0; margin-top: 64px; overflow: hidden;
+  }
+  .ticker-track { display: flex; width: max-content; animation: tick 38s linear infinite; }
+  .ticker:hover .ticker-track { animation-play-state: paused; }
+  .ticker-set { display: flex; align-items: center; }
+  .ticker-set span { font-size: 14px; font-weight: 600; color: var(--muted); white-space: nowrap; }
+  .ticker-set span::after { content: "·"; color: var(--accent); margin: 0 26px; font-weight: 700; }
+  @keyframes tick { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  /* ---------- Polish: scroll progress & back-to-top ---------- */
+  .progress {
+    position: absolute; bottom: -1px; left: 0; height: 2px; width: 0; z-index: 60;
+    background: linear-gradient(90deg, var(--accent), #6f8fe8);
+    transition: width .1s linear;
+  }
+  .to-top {
+    position: fixed; right: 22px; bottom: 22px; z-index: 70;
+    width: 44px; height: 44px; border-radius: 50%; cursor: pointer;
+    background: var(--surface); border: 1px solid var(--border); box-shadow: var(--shadow);
+    color: var(--accent); font-size: 18px; line-height: 1;
+    opacity: 0; pointer-events: none; transform: translateY(10px);
+    transition: opacity .3s, transform .3s, box-shadow .2s;
+  }
+  .to-top.show { opacity: 1; pointer-events: auto; transform: none; }
+  .to-top:hover { box-shadow: 0 10px 24px rgba(23,32,43,.14); }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 860px) {
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .about-grid { grid-template-columns: 1fr; gap: 28px; }
+    .proj-grid { grid-template-columns: repeat(2, 1fr); }
+    .awards-grid { grid-template-columns: 1fr; }
+    .skills-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 560px) {
+    .proj-grid { grid-template-columns: 1fr; }
+    .stats { gap: 10px; }
+    .stat { padding: 16px; }
+    .stat .num { font-size: 26px; }
+    section { padding: 56px 0 8px; }
+    .hero { padding: 64px 0 48px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .reveal { transition: none; opacity: 1; transform: none; }
+    .ticker-track { animation: none; }
+    .status-badge .pulse::after { animation: none; }
+    .to-top { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#top" class="brand">Diljeet <span>Kakkar</span></a>
+    <div class="nav-links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Domains</a>
+      <a href="#skills">Skills</a>
+      <a href="#awards">Awards</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">🌙</button>
+  </div>
+  <div class="progress" id="progressBar"></div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero-glow"></div>
+  <div class="wrap">
+    <div class="avatar">DK</div>
+    <div class="status-badge"><span class="pulse"></span>Open to new opportunities</div>
+    <h1>Diljeet Kakkar</h1>
+    <div class="rotator">Lead Engineer · <span class="word" id="rotWord">Frontend Architecture</span></div>
+    <p class="lede">Frontend-focused engineering leader with 10+ years of software engineering experience — currently leading an 18-member frontend &amp; QA team at Ticketmaster, owning frontend architecture and technical roadmaps for business-critical web platforms.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="#contact">Get in touch</a>
+      <a class="btn btn-ghost" href="https://www.linkedin.com/in/diljeetkakkar/" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="num"><span class="count" data-target="10">0</span>+</div><div class="lbl">Years in engineering</div></div>
+      <div class="stat"><div class="num"><span class="count" data-target="5">0</span>+</div><div class="lbl">Years in technical leadership</div></div>
+      <div class="stat"><div class="num"><span class="count" data-target="18">0</span></div><div class="lbl">Engineers led &amp; mentored</div></div>
+      <div class="stat"><div class="num"><span class="count" data-target="6">0</span></div><div class="lbl">Business-critical platforms delivered</div></div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section id="about">
+    <div class="wrap reveal">
+      <span class="kicker">About</span>
+      <h2>Engineering leadership, grounded in the frontend</h2>
+      <div class="about-grid" style="margin-top: 28px;">
+        <div>
+          <p>I'm a <strong>Lead Engineer at Ticketmaster</strong> with 10+ years of software engineering experience, including 5+ years in senior engineering and technical leadership roles.</p>
+          <p>My focus is deep frontend engineering — <strong>React.js, Next.js, JavaScript, Node.js, AWS, CI/CD</strong> — paired with the architecture, design systems, and performance work it takes to ship business-critical web platforms at scale.</p>
+          <p>Day to day, I own frontend architecture and technical roadmaps while partnering closely with Product, Design, Backend, QA, and DevOps — with a strong track record of technical coaching, engineering standards, production ownership, Agile execution, and developer productivity.</p>
+        </div>
+        <div>
+          <div class="strengths">
+            <span class="chip">Frontend Architecture &amp; Technical Strategy</span>
+            <span class="chip">High-Performance React / Next.js Apps</span>
+            <span class="chip">Engineering Excellence &amp; Code Quality</span>
+            <span class="chip">Technical Roadmaps &amp; Delivery Ownership</span>
+            <span class="chip">People Leadership, Mentoring &amp; Coaching</span>
+            <span class="chip">Cross-Functional Collaboration</span>
+            <span class="chip">Design Systems &amp; Component Libraries</span>
+            <span class="chip">CI/CD, GitLab &amp; Docker</span>
+            <span class="chip">AWS / Cloud-Ready Applications</span>
+            <span class="chip">Production Reliability &amp; RCA</span>
+            <span class="chip">Agile Execution &amp; Delivery Management</span>
+            <span class="chip">Developer Productivity &amp; Tech-Debt Reduction</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <div class="ticker-set">
+        <span>React.js</span><span>Next.js</span><span>JavaScript (ES6+)</span><span>Node.js</span><span>AWS</span><span>Docker</span><span>CI/CD</span><span>GitLab</span><span>Design Systems</span><span>Component Libraries</span><span>Jest</span><span>Material-UI</span><span>Agentic AI</span><span>Claude AI</span><span>Microsoft Copilot</span><span>Webpack</span>
+      </div>
+      <div class="ticker-set">
+        <span>React.js</span><span>Next.js</span><span>JavaScript (ES6+)</span><span>Node.js</span><span>AWS</span><span>Docker</span><span>CI/CD</span><span>GitLab</span><span>Design Systems</span><span>Component Libraries</span><span>Jest</span><span>Material-UI</span><span>Agentic AI</span><span>Claude AI</span><span>Microsoft Copilot</span><span>Webpack</span>
+      </div>
+    </div>
+  </div>
+
+  <section id="experience">
+    <div class="wrap">
+      <div class="reveal">
+        <span class="kicker">Experience</span>
+        <h2>Where I've built</h2>
+        <p class="section-sub">A decade across product companies and consulting — click a role to expand the detail.</p>
+      </div>
+      <div class="timeline">
+        <div class="job open reveal">
+          <div class="job-card">
+            <button class="job-head" aria-expanded="true">
+              <div>
+                <h3>Lead Engineer</h3>
+                <div class="job-meta"><span class="co">Ticketmaster India</span> · Gurgaon · Feb 2019 – Present</div>
+              </div>
+              <span class="chev">▾</span>
+            </button>
+            <div class="job-body">
+              <ul>
+                <li>Lead and mentor an 18-member frontend and QA engineering team — driving ownership, performance, and career growth through regular 1:1s, reviews, and technical coaching.</li>
+                <li>Own frontend architecture and technical roadmaps for large-scale web platforms, focused on scalability, maintainability, and long-term engineering direction.</li>
+                <li>Lead delivery of complex, business-critical web capabilities in React and Next.js — balancing product requirements, engineering quality, performance, and accessibility.</li>
+                <li>Design and implement reusable component libraries and design systems that improve UI consistency and development velocity.</li>
+                <li>Establish engineering standards covering code quality, code reviews, CI/CD, maintainability, and release reliability.</li>
+                <li>Partner with Product, Design, Backend, QA, and DevOps to translate business requirements into robust technical solutions and coordinate end-to-end delivery.</li>
+                <li>Drive frontend performance optimization through SSR, lazy loading, and state-management improvements.</li>
+                <li>Lead production issue resolution, root-cause analysis, and continuous improvement initiatives.</li>
+                <li>Drive Agile execution — sprint planning, estimation, retrospectives, prioritization, and delivery tracking.</li>
+                <li>Evaluate and introduce tools, frameworks, and practices that reduce technical debt and improve developer productivity.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="job reveal">
+          <div class="job-card">
+            <button class="job-head" aria-expanded="false">
+              <div>
+                <h3>Software Engineer</h3>
+                <div class="job-meta"><span class="co">Pure Software Pvt Ltd</span> · Gurgaon · May 2018 – Jan 2019</div>
+              </div>
+              <span class="chev">▾</span>
+            </button>
+            <div class="job-body">
+              <ul>
+                <li>Designed and maintained modern web applications using React.js, JavaScript (ES6+), Redux, Node.js, HTML5, CSS, and Bootstrap.</li>
+                <li>Built reusable frontend components and architectures focused on maintainability, performance, and scalability.</li>
+                <li>Collaborated with product, design, backend, and DevOps teams across the full software development lifecycle.</li>
+                <li>Developed and supported cloud-ready applications in AWS-based environments using Agile/Scrum methodologies.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="job reveal">
+          <div class="job-card">
+            <button class="job-head" aria-expanded="false">
+              <div>
+                <h3>System Engineer</h3>
+                <div class="job-meta"><span class="co">Infosys Technologies</span> · Bangalore · Jan 2016 – Feb 2018</div>
+              </div>
+              <span class="chev">▾</span>
+            </button>
+            <div class="job-body">
+              <ul>
+                <li>Developed web applications using React.js, Redux, Flux, Bootstrap, ES6, and JavaScript.</li>
+                <li>Created microservices using Node.js, Express.js, and Koa.js.</li>
+                <li>Built and deployed web applications and microservices using Jenkins and AWS.</li>
+                <li>Contributed to backend development using Java and Node.js within Agile delivery practices.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <div class="reveal">
+        <span class="kicker">Domain Experience</span>
+        <h2>Domains I've built in</h2>
+        <p class="section-sub">A decade of delivering business-critical platforms across these domains and technology stacks.</p>
+      </div>
+      <div class="proj-grid" id="projGrid">
+        <div class="proj reveal">
+          <div class="proj-top"><h3>🎟️ Live Event Ticketing &amp; Resale</h3><span class="dates">2019 – Present</span></div>
+          <span class="org">Ticketmaster</span>
+          <p class="desc">Large-scale consumer ticketing, tournament, and resale trading platforms serving live-entertainment audiences — delivered with modern SSR architecture.</p>
+          <div class="tags"><span class="tag">Next.js</span><span class="tag">React</span><span class="tag">Redux</span><span class="tag">Docker</span><span class="tag">XSLT</span><span class="tag">Bootstrap</span><span class="tag">Claude AI</span></div>
+        </div>
+        <div class="proj reveal">
+          <div class="proj-top"><h3>👤 Fan Accounts &amp; Consumer Platforms</h3><span class="dates">2019 – 2021</span></div>
+          <span class="org">Ticketmaster</span>
+          <p class="desc">Modern account management and consumer-facing web experiences built for large user bases on a modern React architecture.</p>
+          <div class="tags"><span class="tag">React</span><span class="tag">Redux</span><span class="tag">Webpack</span><span class="tag">JavaScript (ES6+)</span></div>
+        </div>
+        <div class="proj reveal">
+          <div class="proj-top"><h3>🖥️ Enterprise Admin &amp; Consumer Consoles</h3><span class="dates">2018 – 2019</span></div>
+          <span class="org">Pure Software</span>
+          <p class="desc">Administrative and consumer-facing console applications built on reusable, maintainable React component architectures.</p>
+          <div class="tags"><span class="tag">React</span><span class="tag">Redux</span><span class="tag">Webpack</span><span class="tag">JavaScript (ES6+)</span></div>
+        </div>
+        <div class="proj reveal">
+          <div class="proj-top"><h3>⚙️ Full-Stack Business Systems</h3><span class="dates">2016 – 2018</span></div>
+          <span class="org">Infosys</span>
+          <p class="desc">End-to-end management systems spanning React frontends, Node.js microservices, and cloud deployment pipelines.</p>
+          <div class="tags"><span class="tag">React</span><span class="tag">Redux</span><span class="tag">Node.js</span><span class="tag">Express.js</span><span class="tag">Koa.js</span><span class="tag">MongoDB</span><span class="tag">Jenkins</span><span class="tag">AWS</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="wrap">
+      <div class="reveal">
+        <span class="kicker">Skills</span>
+        <h2>Technical toolkit</h2>
+        <p class="section-sub">The stack I architect, build, and coach teams with.</p>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-card reveal">
+          <h3><span class="dot"></span>Frontend</h3>
+          <div class="skill-tags">
+            <span class="chip">React.js</span><span class="chip">Next.js</span><span class="chip">JavaScript (ES6+)</span><span class="chip">HTML / CSS</span><span class="chip">Bootstrap</span><span class="chip">Jest</span><span class="chip">Material-UI</span>
+          </div>
+        </div>
+        <div class="skill-card reveal">
+          <h3><span class="dot"></span>Architecture &amp; Backend</h3>
+          <div class="skill-tags">
+            <span class="chip">Frontend Architecture</span><span class="chip">Design Systems</span><span class="chip">Component Libraries</span><span class="chip">Node.js</span><span class="chip">Express.js</span><span class="chip">Koa.js</span><span class="chip">SQL</span>
+          </div>
+        </div>
+        <div class="skill-card reveal">
+          <h3><span class="dot"></span>Cloud &amp; Delivery</h3>
+          <div class="skill-tags">
+            <span class="chip">Amazon Web Services</span><span class="chip">GitLab</span><span class="chip">Docker</span><span class="chip">CI/CD</span><span class="chip">Jenkins</span><span class="chip">Webpack</span>
+          </div>
+        </div>
+        <div class="skill-card reveal">
+          <h3><span class="dot"></span>AI Developer Tools</h3>
+          <div class="skill-tags">
+            <span class="chip">Agentic AI</span><span class="chip">Claude AI</span><span class="chip">Microsoft Copilot</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="awards">
+    <div class="wrap">
+      <div class="reveal">
+        <span class="kicker">Recognition</span>
+        <h2>Awards</h2>
+        <p class="section-sub">Recognition earned at Ticketmaster.</p>
+      </div>
+      <div class="awards-grid">
+        <div class="award reveal">
+          <div class="trophy">🏆</div>
+          <h3>Jupiter Award</h3>
+          <p>Ticketmaster · Oct 2022</p>
+        </div>
+        <div class="award reveal">
+          <div class="trophy">⭐</div>
+          <h3>Performance, Productivity &amp; Dedicated Services</h3>
+          <p>Ticketmaster · Feb 2021</p>
+        </div>
+        <div class="award reveal">
+          <div class="trophy">⭐</div>
+          <h3>Performance, Productivity &amp; Dedicated Services</h3>
+          <p>Ticketmaster · Feb 2020</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap reveal">
+      <div class="contact-card">
+        <h2>Let's build something together</h2>
+        <p>Open to conversations about engineering leadership, frontend architecture, and building high-performing teams.</p>
+        <div class="cta-row">
+          <a class="btn btn-white" href="mailto:diljeetkakkarw@gmail.com">Email me</a>
+          <a class="btn btn-outline" href="https://www.linkedin.com/in/diljeetkakkar/" target="_blank" rel="noopener">Connect on LinkedIn ↗</a>
+        </div>
+        <div class="contact-email">or write to <a href="mailto:diljeetkakkarw@gmail.com">diljeetkakkarw@gmail.com</a></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 Diljeet Kakkar · Lead Engineer · Frontend Architecture · Engineering Leadership</div>
+</footer>
+
+<button class="to-top" id="toTop" aria-label="Back to top">↑</button>
+
+<script>
+(function () {
+  /* Reveal on scroll */
+  var revealEls = document.querySelectorAll('.reveal');
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(function (el) { io.observe(el); });
+
+  /* Rotating hero word */
+  var words = ['Frontend Architecture', 'Engineering Leadership', 'React & Next.js', 'Design Systems', 'Team Coaching'];
+  var rot = document.getElementById('rotWord');
+  var wi = 0;
+  setInterval(function () {
+    rot.classList.add('out');
+    setTimeout(function () {
+      wi = (wi + 1) % words.length;
+      rot.textContent = words[wi];
+      rot.classList.remove('out');
+    }, 350);
+  }, 2600);
+
+  /* Count-up stats */
+  var counted = false;
+  var statsEl = document.querySelector('.stats');
+  var statIO = new IntersectionObserver(function (entries) {
+    if (entries[0].isIntersecting && !counted) {
+      counted = true;
+      document.querySelectorAll('.count').forEach(function (el) {
+        var target = parseInt(el.dataset.target, 10);
+        var start = null;
+        function step(ts) {
+          if (!start) start = ts;
+          var p = Math.min((ts - start) / 1200, 1);
+          el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3)));
+          if (p < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      });
+      statIO.disconnect();
+    }
+  }, { threshold: 0.4 });
+  statIO.observe(statsEl);
+
+  /* Expandable experience */
+  document.querySelectorAll('.job-head').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var job = btn.closest('.job');
+      var open = job.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  });
+
+  /* Theme toggle */
+  var themeBtn = document.getElementById('themeToggle');
+  var themeMeta = document.querySelector('meta[name="theme-color"]');
+  function applyTheme(t) {
+    if (t === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      themeBtn.textContent = '☀️';
+      if (themeMeta) themeMeta.setAttribute('content', '#0f1420');
+    } else {
+      document.documentElement.removeAttribute('data-theme');
+      themeBtn.textContent = '🌙';
+      if (themeMeta) themeMeta.setAttribute('content', '#fbfbf9');
+    }
+  }
+  applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light');
+  themeBtn.addEventListener('click', function () {
+    var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    applyTheme(next);
+    try { localStorage.setItem('theme', next); } catch (e) {}
+  });
+
+  /* Scroll progress + back-to-top */
+  var progress = document.getElementById('progressBar');
+  var toTop = document.getElementById('toTop');
+  function onScroll() {
+    var st = window.scrollY || document.documentElement.scrollTop;
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    progress.style.width = (h > 0 ? (st / h) * 100 : 0) + '%';
+    toTop.classList.toggle('show', st > 600);
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+  toTop.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+
+  /* Staggered grid reveals (delay cleared after entry so hovers stay snappy) */
+  document.querySelectorAll('.proj-grid, .skills-grid, .awards-grid').forEach(function (grid) {
+    Array.prototype.forEach.call(grid.children, function (c, i) {
+      c.style.transitionDelay = (i * 90) + 'ms';
+      c.addEventListener('transitionend', function h() {
+        c.style.transitionDelay = '0ms';
+        c.removeEventListener('transitionend', h);
+      });
+    });
+  });
+
+  /* Active nav link */
+  var sections = document.querySelectorAll('section[id]');
+  var navLinks = document.querySelectorAll('.nav-links a');
+  var navIO = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) {
+        navLinks.forEach(function (a) {
+          a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id);
+        });
+      }
+    });
+  }, { rootMargin: '-40% 0px -55% 0px' });
+  sections.forEach(function (s) { navIO.observe(s); });
+})();
+</script>
+
+</body>
+</html>
